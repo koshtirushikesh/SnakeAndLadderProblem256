@@ -11,8 +11,9 @@ namespace SnakeAndLader
         static void Main(string[] args)
         {
             Player player = new Player();
+            
+            Console.WriteLine("Player Possition: "+player.PlayerPossition);
             player.Playing();
-            Console.WriteLine("Player Possition: "+player.PlayerPossition); 
 
             Console.ReadLine();
         }
