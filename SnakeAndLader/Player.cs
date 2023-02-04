@@ -9,11 +9,13 @@ namespace SnakeAndLader
     public class Player
     {
         internal int PlayerPossition = 0;
+        internal int DieCount = 0;
         public void Playing()
         {
             Random random = new Random();
             int DieRoll = random.Next(1, 7);
             Console.WriteLine("Die Rolled No:"+DieRoll);
+            DieCount++;
             PlayerPossition += DieRoll;
             
             int Option=random.Next(0, 3);
@@ -41,7 +43,7 @@ namespace SnakeAndLader
 
         public void PlayingTillWin()
         {
-            while(PlayerPossition<112)
+            while(PlayerPossition<120)
             {
                 Playing();
 
@@ -50,9 +52,8 @@ namespace SnakeAndLader
                     Console.WriteLine("Player Win by reaching: "+PlayerPossition);
                     break;
                 }
-
             }
-            
+            Console.WriteLine("No of Die Count to Win : " +DieCount);
         }
     }
 }
