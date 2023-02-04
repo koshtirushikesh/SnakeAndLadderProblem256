@@ -13,7 +13,7 @@ namespace SnakeAndLader
             Player player = new Player();
             
             Console.WriteLine("Player Possition: "+player.PlayerPossition);
-            player.Playing();
+            player.PlayingTillWin();
 
             Console.ReadLine();
         }

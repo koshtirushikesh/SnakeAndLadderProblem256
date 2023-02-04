@@ -14,21 +14,33 @@ namespace SnakeAndLader
             Random random = new Random();
             int DieRoll = random.Next(1, 7);
             Console.WriteLine("Die Rolled No:"+DieRoll);
-            PlayerPossition = DieRoll;
+            PlayerPossition += DieRoll;
             
             int Option=random.Next(0, 3);
 
             switch(Option)
             {
                         //no play
-                case 0: Console.WriteLine("No Play : "+PlayerPossition);break;
+                case 0: Console.WriteLine("No Play : Player Possition "+PlayerPossition);break;
                 case 1:  //lader
                          PlayerPossition+=DieRoll;
-                         Console.WriteLine("lader : " + PlayerPossition);break;
+                         Console.WriteLine("lader : Player Possition " + PlayerPossition);break;
                 case 2: // snake
                          PlayerPossition-=DieRoll;
-                    Console.WriteLine("Snake : " + PlayerPossition); break;
+                    Console.WriteLine("Snake : Player Possition " + PlayerPossition); break;
             }
+
+            if (PlayerPossition < 0)
+                PlayerPossition = 0;
+        }
+
+        public void PlayingTillWin()
+        {
+            while(PlayerPossition<100)
+            {
+                Playing();
+            }
+            Console.WriteLine("Player Win");
         }
     }
 }
