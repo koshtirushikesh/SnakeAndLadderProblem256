@@ -8,7 +8,13 @@ namespace SnakeAndLader
 {
     public class Player
     {
-        public int PlayerPossition = 0;
+        internal int PlayerPossition = 0;
+        public void Playing()
+        {
+            Random random = new Random();
+            int DieRoll = random.Next(1, 7);
 
+            PlayerPossition = DieRoll;
+        }
     }
 }
