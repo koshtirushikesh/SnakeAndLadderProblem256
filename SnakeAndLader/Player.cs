@@ -38,6 +38,7 @@ namespace SnakeAndLader
                             Console.WriteLine("Since Player got lader so player get one more chance:");
                             Playing(PlayerPossition);
                         }
+                        
                         break;
                     case 2: /* snake*/ 
                         PlayerPossition -= DieRoll;
