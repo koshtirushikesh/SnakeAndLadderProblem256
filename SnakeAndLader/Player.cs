@@ -10,14 +10,15 @@ namespace SnakeAndLader
     {
         internal int PlayerPossition = 0;
         internal int DieCount = 0;
-        public void Playing()
+        public int Playing(int PlayerPossition)
         {
             Random random = new Random();
             int DieRoll = random.Next(1, 7);
-            Console.WriteLine("Die Rolled No:"+DieRoll);
+        
             DieCount++;
             PlayerPossition += DieRoll;
-            
+            Console.WriteLine("Die Rolled No:" + DieRoll + "\nPlayer Possition : " + PlayerPossition);
+
             int Option=random.Next(0, 3);
 
             if(PlayerPossition<100)
@@ -25,13 +26,13 @@ namespace SnakeAndLader
                 switch (Option)
                 {
                     //no play
-                    case 0: Console.WriteLine("No Play : Player Possition " + PlayerPossition); break;
+                    case 0: Console.WriteLine("No Play :\nPlayer Possition " + PlayerPossition); break;
                     case 1:  //lader
                         PlayerPossition += DieRoll;
-                        Console.WriteLine("lader : Player Possition " + PlayerPossition); break;
+                        Console.WriteLine("lader : \nPlayer Possition " + PlayerPossition); break;
                     case 2: // snake
                         PlayerPossition -= DieRoll;
-                        Console.WriteLine("Snake : Player Possition " + PlayerPossition); break;
+                        Console.WriteLine("Snake : \nPlayer Possition " + PlayerPossition); break;
                 }
             }
 
@@ -39,21 +40,8 @@ namespace SnakeAndLader
                 PlayerPossition = 0;
             else if (PlayerPossition > 100) 
                 PlayerPossition -= DieRoll;
-        }
 
-        public void PlayingTillWin()
-        {
-            while(PlayerPossition<120)
-            {
-                Playing();
-
-                if(PlayerPossition==100)
-                {
-                    Console.WriteLine("Player Win by reaching: "+PlayerPossition);
-                    break;
-                }
-            }
-            Console.WriteLine("No of Die Count to Win : " +DieCount);
+            return PlayerPossition;
         }
     }
 }
